@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODO SPORT — Catálogo Oficial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0d0d11;
+      --bg-secondary: #13131a;
+      --bg-card: #171721;
+      --bg-card-hover: #1e1e2c;
+      --violet: #8b5cf6;
+      --violet-glow: rgba(139, 92, 246, 0.35);
+      --yellow: #facc15;
+      --yellow-glow: rgba(250, 204, 21, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --nav-height: 74px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 24px);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(139, 92, 246, 0.12), transparent 35%),
+        radial-gradient(circle at 88% 85%, rgba(250, 204, 21, 0.07), transparent 35%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(13, 13, 17, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-main);
+      flex-shrink: 0;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .brand:hover {
+      transform: scale(1.04);
+      filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.45)) drop-shadow(0 0 8px rgba(250, 204, 21, 0.3));
+    }
+
+    .brand-logo-svg {
+      height: 56px;
+      width: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-secondary);
+      padding: 5px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+
+    .nav-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 8px 15px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    /* Hover amarillo tal como solicitaste */
+    .nav-link:hover:not(.active) {
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.08);
+    }
+
+    .nav-link.active {
+      background: var(--violet);
+      color: #ffffff;
+      box-shadow: 0 2px 12px var(--violet-glow);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: var(--bg-card);
+      border: 1.5px solid rgba(139, 92, 246, 0.5);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .mobile-menu-btn:hover,
+    .mobile-menu-btn.open {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 14px var(--yellow-glow);
+    }
+
+    .hamburger-bars {
+      width: 18px;
+      height: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .hamburger-bars span {
+      display: block;
+      width: 100%;
+      height: 2.2px;
+      background: currentColor;
+      border-radius: 99px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    .mobile-menu-btn.open .hamburger-bars span:nth-child(1) {
+      transform: translateY(5.9px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.open .hamburger-bars span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.open .hamburger-bars span:nth-child(3) {
+      transform: translateY(-5.9px) rotate(-45deg);
+    }
+
+    .cart-trigger {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .cart-trigger:hover {
+      border-color: var(--yellow);
+      background: var(--bg-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .cart-trigger.bump {
+      animation: cartBounce 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes cartBounce {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.22) rotate(-4deg); box-shadow: 0 0 24px var(--yellow-glow), 0 0 32px var(--violet-glow); border-color: var(--yellow); }
+      70% { transform: scale(0.95) rotate(2deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+
+    .cart-count {
+      background: var(--yellow);
+      color: #0d0d11;
+      font-size: 0.78rem;
+      font-weight: 800;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 32px) 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+
+    .category-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-dot {
+      width: 12px;
+      height: 26px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--yellow), var(--violet));
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .section-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139, 92, 246, 0.55);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .product-showcase {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 13.5;
+      background: #1c1c24;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.04);
+    }
+
+    /* Controles de galería de múltiples fotos en tarjetas y modal */
+    .card-gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(13, 13, 17, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-gallery-btn:hover {
+      background: var(--violet);
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .card-gallery-btn.prev { left: 8px; }
+    .card-gallery-btn.next { right: 8px; }
+
+    .card-gallery-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: rgba(13, 13, 17, 0.72);
+      padding: 4px 9px;
+      border-radius: 999px;
+      z-index: 5;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .card-gallery-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .card-gallery-dot.active {
+      background: var(--yellow);
+      transform: scale(1.25);
+    }
+
+    .product-modal-media {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-thumbs-bar {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      gap: 8px;
+      padding: 6px 10px;
+      background: rgba(13, 13, 17, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      z-index: 6;
+      backdrop-filter: blur(6px);
+      max-width: 92%;
+      overflow-x: auto;
+    }
+
+    .modal-thumb-item {
+      width: 44px;
+      height: 54px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      opacity: 0.65;
+      transition: all 0.2s ease;
+      background: #13131a;
+    }
+
+    .modal-thumb-item.active,
+    .modal-thumb-item:hover {
+      border-color: var(--yellow);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .modal-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+      justify-content: space-between;
+      background: linear-gradient(180deg, rgba(23, 23, 33, 0.9), var(--bg-card));
+    }
+
+    .product-name {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: -0.3px;
+    }
+
+    .size-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .size-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .size-btn {
+      padding: 4px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .size-btn:hover {
+      border-color: var(--violet);
+      color: var(--text-main);
+    }
+
+    .size-btn.active {
+      background: rgba(250, 204, 21, 0.14);
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .add-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      background: linear-gradient(135deg, var(--violet), #6d28d9);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-btn:hover {
+      background: var(--yellow);
+      color: #0d0d11;
+      border-color: var(--yellow);
+      box-shadow: 0 6px 18px var(--yellow-glow);
+    }
+
+    .add-btn:active {
+      transform: scale(0.97);
+    }
+
+    .add-btn:disabled,
+    .add-btn.disabled-btn {
+      background: #272733;
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Cinta diagonal de AGOTADO de punta a punta sobre la foto */
+    .product-card.out-of-stock .product-img {
+      filter: grayscale(45%) brightness(0.72);
+    }
+
+    .sold-out-ribbon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 155%;
+      transform: translate(-50%, -50%) rotate(-32deg);
+      background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 0;
+      border-top: 2px solid rgba(255, 255, 255, 0.85);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+      z-index: 4;
+      pointer-events: none;
+      white-space: nowrap;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Tarjeta especial de Promoción 2 Vapers */
+    .product-card.promo-card {
+      border: 1.5px solid rgba(250, 204, 21, 0.65);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 22px rgba(250, 204, 21, 0.14);
+      background: linear-gradient(160deg, #1f1b2e 0%, #171721 100%);
+    }
+
+    .product-card.promo-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 28px rgba(250, 204, 21, 0.28);
+    }
+
+    .promo-ribbon {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 3;
+      background: linear-gradient(135deg, var(--yellow), #f59e0b);
+      color: #0d0d11;
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    }
+
+    .promo-select-btn {
+      background: linear-gradient(135deg, var(--yellow), #eab308);
+      color: #0d0d11;
+      border-color: var(--yellow);
+      font-weight: 800;
+    }
+
+    .promo-select-btn:hover {
+      background: linear-gradient(135deg, var(--violet), #6d28d9);
+      color: #ffffff;
+      border-color: var(--violet);
+      box-shadow: 0 6px 18px var(--violet-glow);
+    }
+
+    /* Placa Mayorista (misma estética redondeada que Contactanos) */
+    .wholesale-content {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .wholesale-text-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .wholesale-text-box h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .wholesale-text-box p {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .wholesale-perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .wholesale-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.08);
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .wholesale-cta-card {
+      background: linear-gradient(145deg, rgba(139, 92, 246, 0.16), rgba(23, 23, 33, 0.95));
+      border: 1.5px solid rgba(250, 204, 21, 0.4);
+      border-radius: 20px;
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      height: 100%;
+    }
+
+    .wholesale-cta-card h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .wholesale-cta-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .wholesale-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: var(--yellow);
+      color: #0d0d11;
+      font-weight: 800;
+      font-size: 0.94rem;
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+
+    .wholesale-wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px var(--yellow-glow);
+      filter: brightness(1.05);
+    }
+
+    /* Tag y sublista de promoción en el carrito */
+    .cart-promo-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, var(--yellow), #f59e0b);
+      color: #0d0d11;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+    }
+
+    .cart-promo-flavors {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+
+    /* Modal selector de 2 Vapers para la Promoción */
+    .promo-modal {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      max-height: 88vh;
+      background: linear-gradient(145deg, #191924, #13131b);
+      border: 1.5px solid rgba(250, 204, 21, 0.55);
+      border-radius: 26px;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.75), 0 0 34px rgba(139, 92, 246, 0.25);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(12px) scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .product-modal-overlay.open .promo-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .promo-modal-header {
+      padding: 22px 26px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .promo-slots-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .promo-slot-pill {
+      background: var(--bg-secondary);
+      border: 1.5px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .promo-slot-pill.filled {
+      border-style: solid;
+      border-color: var(--yellow);
+      background: rgba(250, 204, 21, 0.08);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .slot-remove-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--yellow);
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .promo-flavors-grid {
+      padding: 18px 26px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+      gap: 10px;
+    }
+
+    .promo-flavor-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .promo-flavor-item:hover:not(.disabled) {
+      border-color: var(--violet);
+      background: var(--bg-card-hover);
+    }
+
+    .promo-flavor-item.selected {
+      border-color: var(--yellow);
+      background: rgba(250, 204, 21, 0.09);
+    }
+
+    .promo-flavor-item.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .promo-flavor-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .flavor-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .promo-flavor-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.2);
+      color: #e2e8f0;
+      flex-shrink: 0;
+    }
+
+    .promo-flavor-item.selected .promo-flavor-badge {
+      background: var(--yellow);
+      color: #0d0d11;
+    }
+
+    .promo-modal-footer {
+      padding: 16px 26px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .promo-confirm-btn {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      background: var(--yellow);
+      color: #0d0d11;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .promo-confirm-btn:disabled {
+      background: #272733;
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    /* Sección Contactanos encerrada en su propio contenedor redondeado */
+    .contact-container {
+      background: linear-gradient(145deg, rgba(23, 23, 33, 0.96), rgba(19, 19, 26, 0.98));
+      border: 1.5px solid rgba(139, 92, 246, 0.32);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 28px rgba(139, 92, 246, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .contact-card:hover {
+      border-color: var(--yellow);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .contact-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .fly-dot {
+      position: fixed;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--yellow), var(--violet));
+      color: #0d0d11;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      pointer-events: none;
+      box-shadow: 0 0 20px var(--yellow-glow);
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 430px;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border);
+      z-index: 210;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-header h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-cart {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .cart-content {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cart-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cart-item-info h4 {
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .cart-item-info span {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-main);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .qty-btn:hover {
+      border-color: var(--violet);
+    }
+
+    .shipping-dock {
+      flex-shrink: 0;
+      padding: 12px 22px 14px;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -10px 24px rgba(0, 0, 0, 0.45);
+      position: relative;
+      z-index: 5;
+      display: none;
+    }
+
+    .shipping-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      border-radius: 14px;
+      overflow: hidden;
+      display: block;
+    }
+
+    .shipping-toggle {
+      width: 100%;
+      padding: 14px 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .shipping-toggle span.badge {
+      font-size: 0.78rem;
+      color: var(--yellow);
+      font-weight: 700;
+    }
+
+    .shipping-body {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
+      flex-direction: column;
+      gap: 10px;
+      max-height: 230px;
+      overflow-y: auto;
+    }
+
+    .shipping-box.expanded .shipping-body {
+      display: flex;
+      padding-top: 14px;
+    }
+
+    .shipping-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .shipping-option:hover,
+    .shipping-option.selected {
+      border-color: var(--yellow);
+      background: rgba(250, 204, 21, 0.07);
+    }
+
+    .shipping-option-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .shipping-price {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--yellow);
+    }
+
+    .buyer-input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.86rem;
+      margin-top: 4px;
+    }
+
+    .buyer-input:focus {
+      outline: none;
+      border-color: var(--violet);
+    }
+
+    .cart-footer {
+      padding: 18px 22px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-row.total {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-main);
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+    }
+
+    .summary-row.total span:last-child {
+      color: var(--yellow);
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: var(--yellow);
+      color: #0d0d11;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px var(--yellow-glow);
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 32px 12px;
+      font-size: 0.92rem;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+    }
+
+    .empty-msg.warn {
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.08);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+    }
+
+    /* */
+    .product-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 12, 0.76);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .product-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .product-modal {
+      position: relative;
+      width: 100%;
+      max-width: 820px;
+      background: linear-gradient(145deg, #191924, #13131b);
+      border: 1.5px solid rgba(139, 92, 246, 0.55);
+      border-radius: 26px;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.7), 0 0 34px rgba(139, 92, 246, 0.25);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      transform: translateY(12px) scale(0.95);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .product-modal-overlay.open .product-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .product-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(13, 13, 17, 0.78);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .product-modal-close:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .product-modal-media {
+      background: #1c1c24;
+      aspect-ratio: 9 / 13.5;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .product-modal-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-modal-info {
+      padding: 34px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .product-modal-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--yellow);
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .product-modal-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      padding-right: 36px;
+    }
+
+    .product-modal-price {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--yellow);
+    }
+
+    .product-modal-desc {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --nav-height: 70px;
+      }
+      header {
+        padding: 0 14px;
+        height: var(--nav-height);
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .brand-logo-svg {
+        height: 42px;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        flex: 0 0 auto;
+      }
+      .mobile-menu-btn {
+        display: inline-flex;
+        order: 1;
+      }
+      .cart-trigger {
+        order: 2;
+        padding: 8px 14px;
+        font-size: 0.86rem;
+      }
+      .nav-pills {
+        position: fixed;
+        top: calc(var(--nav-height) + 8px);
+        left: 12px;
+        right: 12px;
+        background: rgba(19, 19, 26, 0.98);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1.5px solid rgba(139, 92, 246, 0.45);
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.7), 0 0 24px rgba(139, 92, 246, 0.2);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px) scale(0.98);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        z-index: 150;
+      }
+      .nav-pills.mobile-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+      .nav-link {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.92rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-link::after {
+        content: "→";
+        font-size: 0.85rem;
+        opacity: 0.65;
+      }
+      main {
+        padding: calc(var(--nav-height) + 20px) 14px 60px;
+        gap: 48px;
+      }
+      .section-title {
+        font-size: 1.35rem;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .product-body {
+        padding: 12px;
+        gap: 10px;
+      }
+      .product-name {
+        font-size: 0.9rem;
+      }
+      .product-price {
+        font-size: 1.1rem;
+      }
+      .add-btn {
+        padding: 10px 10px;
+        font-size: 0.82rem;
+        border-radius: 10px;
+      }
+      .promo-ribbon {
+        font-size: 0.66rem;
+        padding: 4px 8px;
+        top: 8px;
+        left: 8px;
+      }
+      .contact-container {
+        padding: 18px;
+        border-radius: 22px;
+      }
+      .wholesale-content {
+        grid-template-columns: 1fr;
+      }
+      .promo-modal {
+        max-height: 90dvh;
+        border-radius: 20px;
+      }
+      .promo-modal-header {
+        padding: 16px 16px 12px;
+      }
+      .promo-slots-bar {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .promo-flavors-grid {
+        grid-template-columns: 1fr;
+        padding: 12px 16px;
+      }
+      .promo-modal-footer {
+        padding: 12px 16px;
+      }
+      .product-modal {
+        grid-template-columns: 1fr;
+        max-width: 94vw;
+        max-height: 88dvh;
+        overflow-y: auto;
+        border-radius: 22px;
+      }
+      .product-modal-media {
+        aspect-ratio: 4 / 4.6;
+        max-height: 320px;
+      }
+      .product-modal-media img {
+        object-fit: contain;
+        background: #1c1c24;
+      }
+      .modal-thumbs-bar {
+        bottom: 8px;
+        padding: 4px 8px;
+        gap: 6px;
+      }
+      .modal-thumb-item {
+        width: 36px;
+        height: 44px;
+      }
+      .card-gallery-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+      .product-modal-info {
+        padding: 18px 16px 20px;
+        gap: 14px;
+      }
+      .product-modal-title {
+        font-size: 1.25rem;
+        padding-right: 0;
+      }
+      .product-modal-price {
+        font-size: 1.4rem;
+      }
+      .product-modal-desc {
+        font-size: 0.9rem;
+        padding: 12px 14px;
+      }
+      .cart-drawer {
+        max-width: 100%;
+        height: 100dvh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#vapers" class="brand" aria-label="MODO SPORT Inicio">
+      <svg class="brand-logo-svg" viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MODO SPORT">
+        <!-- Capa Violeta del Rayo (desplazada a la izquierda) -->
+        <g transform="translate(-4.5, 0)">
+          <!-- Mitad superior del rayo hueco -->
+          <polygon points="168,3 112,60 132,57 121,60 175,51 149,54 168,3" fill="#6d28d9" />
+          <path d="M168 3 L114 59 L144 55 L163 14 L151 49 L196 42 L182 47 L145 53 Z" fill="#6d28d9"/>
+          <!-- Contorno exacto del rayo calado en dos trazos geométricos -->
+          <polygon points="168,2 114,58 148,54 139,50 123,52 162,13 151,48 194,42 156,55 204,46 130,108 145,59 116,63 141,57 152,58 137,96 190,51 154,56" fill="#7c3aed" />
+        </g>
+
+        <!-- Capa Amarilla del Rayo (desplazada a la derecha) -->
+        <g transform="translate(3.5, 0)">
+          <polygon points="168,2 114,58 148,54 139,50 123,52 162,13 151,48 194,42 156,55 204,46 130,108 145,59 116,63 141,57 152,58 137,96 190,51 154,56" fill="#ffff00" />
+        </g>
+
+        <!-- Trazo adicional de precisión para el calado central idéntico al logo original -->
+        <g>
+          <!-- Parte superior izquierda y pico central (Violeta) -->
+          <path d="M164 2 L112 57 L120 56 L159 15 L147 49 L188 43 L150 53 L196 46 L128 108 L143 58 L115 62 L149 56 L136 95 L184 51 L142 56" fill="none" stroke="#6d28d9" stroke-width="5.5" stroke-linejoin="miter" stroke-miterlimit="10"/>
+          <!-- Parte superior izquierda y pico central (Amarillo desplazado) -->
+          <path d="M170 2 L118 57 L126 56 L165 15 L153 49 L194 43 L156 53 L202 46 L134 108 L149 58 L121 62 L155 56 L142 95 L190 51 L148 56" fill="none" stroke="#facc15" stroke-width="4" stroke-linejoin="miter" stroke-miterlimit="10"/>
+        </g>
+
+        <!-- Tipografía MODO SPORT ancha y deportiva cruzando el centro -->
+        <text
+          x="160"
+          y="63"
+          text-anchor="middle"
+          font-family="'Orbitron', 'Plus Jakarta Sans', sans-serif"
+          font-weight="900"
+          font-size="25"
+           letter-spacing="2.5"
+          fill="#ffffff"
+          stroke="#0d0d11"
+          stroke-width="5"
+          paint-order="stroke fill"
+          transform="skewX(-6) scale(1.14, 0.92)"
+          style="transform-origin: 160px 56px;"
+        >MODO SPORT</text>
+      </svg>
+    </a>
+
+    <div class="nav-right">
+      <nav class="nav-pills" id="navPills">
+        <a href="#vapers" class="nav-link active" data-section="vapers">Vapers</a>
+        <a href="#accesorios" class="nav-link" data-section="accesorios">Accesorios</a>
+        <a href="#gafas" class="nav-link" data-section="gafas">Gafas</a>
+        <a href="#remeras" class="nav-link" data-section="remeras">Remeras</a>
+        <a href="#perfumes" class="nav-link" data-section="perfumes">Perfumes</a>
+        <a href="#mayorista" class="nav-link" data-section="mayorista">Mayorista</a>
+        <a href="#contactanos" class="nav-link" data-section="contactanos">Contactanos</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Abrir menú de secciones" aria-expanded="false">
+        <span class="hamburger-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <button class="cart-trigger" id="cartTrigger" aria-label="Abrir carrito">
+        <span>🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECCIÓN VAPERS -->
+    <section id="vapers" class="category-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-dot"></div>
+          <h2 class="section-title">Vapers</h2>
+        </div>
+        <span class="section-badge">Promo + 26 modelos</span>
+      </div>
+      <div class="products-grid" id="grid-vapers"></div>
+    </section>
+
+    <!-- SECCIÓN ACCESORIOS -->
+    <section id="accesorios" class="category-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-dot"></div>
+          <h2 class="section-title">Accesorios</h2>
+        </div>
+        <span class="section-badge">Audio</span>
+      </div>
+      <div class="products-grid" id="grid-accesorios"></div>
+    </section>
+
+    <!-- SECCIÓN GAFAS -->
+    <section id="gafas" class="category-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-dot"></div>
+          <h2 class="section-title">Gafas</h2>
+        </div>
+        <span class="section-badge">13 modelos 100%</span>
+      </div>
+      <div class="products-grid" id="grid-gafas"></div>
+    </section>
+
+    <!-- SECCIÓN REMERAS -->
+    <section id="remeras" class="category-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-dot"></div>
+          <h2 class="section-title">Remeras y Camisas</h2>
+        </div>
+        <span class="section-badge">8 remeras + 1 camisa</span>
+      </div>
+      <div class="products-grid" id="grid-remeras"></div>
+    </section>
+
+    <!-- SECCIÓN PERFUMES -->
+    <section id="perfumes" class="category-section">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-dot"></div>
+          <h2 class="section-title">Perfumes</h2>
+        </div>
+        <span class="section-badge">4 modelos</span>
+      </div>
+      <div class="products-grid" id="grid-perfumes"></div>
+    </section>
+
+    <!-- SECCIÓN MAYORISTA EN CONTENEDOR REDONDEADO -->
+    <section id="mayorista" class="category-section">
+      <div class="contact-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-dot"></div>
+            <h2 class="section-title">Ventas Mayoristas</h2>
+          </div>
+          <span class="section-badge">Mínimo 5 unidades</span>
+        </div>
+
+        <div class="wholesale-content">
+          <div class="wholesale-text-box">
+            <h3>¿Querés revender nuestros productos?</h3>
+            <p id="wholesaleDescriptionText">
+              Contamos con listas de precios exclusivas para compras mayoristas en Vapers, Accesorios, Gafas 100%, Remeras y Perfumes. El mínimo para acceder a la venta mayorista es de <strong style="color: var(--yellow);">5 unidades de cualquier producto</strong> del catálogo. Los valores por cantidad se cotizan de forma personalizada según tu pedido.
+            </p>
+            <div class="wholesale-perks">
+              <span class="wholesale-pill">📦 Mínimo 5 unidades (cualquier producto)</span>
+              <span class="wholesale-pill">⚡ Atención directa</span>
+              <span class="wholesale-pill">🛵 Envíos y entregas rápidas</span>
+            </div>
+          </div>
+
+          <div class="wholesale-cta-card">
+            <div>
+              <h4>Lista de precios mayorista</h4>
+              <p>Llevando un mínimo de 5 unidades de cualquier producto ya accedés a los precios mayoristas. Escribinos por WhatsApp para recibir los valores actualizados del día.</p>
+            </div>
+            <a href="#" id="wholesaleWhatsappBtn" target="_blank" rel="noopener" class="wholesale-wa-btn">
+              <span>💬</span>
+              <span>Consultar Mayorista por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTANOS ENCONTENEDOR REDONDEADO -->
+    <section id="contactanos" class="category-section">
+      <div class="contact-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <div class="section-dot"></div>
+            <h2 class="section-title">Contactanos</h2>
+          </div>
+          <span class="section-badge">Atención directa</span>
+        </div>
+
+        <div class="contact-grid">
+          <a href="#" id="contactWhatsappLink" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">💬</div>
+            <div class="contact-info">
+              <h3>WhatsApp</h3>
+              <p>Consultas y pedidos directos</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/modosport.import" id="contactInstagramLink" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon">📸</div>
+            <div class="contact-info">
+              <h3>Instagram</h3>
+              <p id="instagramHandleText">@modosport.import</p>
+            </div>
+          </a>
+
+          <div class="contact-card" id="contactShippingCard">
+            <div class="contact-icon">🛵</div>
+            <div class="contact-info">
+              <h3>Envíos</h3>
+              <p>Se coordina por WhatsApp al realizar tu compra</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h2>⚡ Tu Carrito</h2>
+      <button class="close-cart" id="closeCart">✕</button>
+    </div>
+
+    <div class="cart-content">
+      <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+
+    <!-- AVISO DE ENVÍO FIJO ABAJO (SÓLO VISIBLE CON PRODUCTOS EN EL CARRITO) -->
+    <div class="shipping-dock" id="shippingDock">
+      <div class="shipping-box" id="shippingBox" style="padding: 14px 16px;">
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;">
+          <span style="font-size: 1.2rem; line-height: 1;">🛵</span>
+          <div>
+            <div style="font-size: 0.9rem; font-weight: 800; color: var(--yellow); margin-bottom: 3px;">Envío a coordinar por WhatsApp</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">El método y costo de envío o entrega se coordinan directamente por WhatsApp cuando estés por realizar o hayas realizado la compra.</p>
+          </div>
+        </div>
+        <input
+          type="text"
+          id="buyerNote"
+          class="buyer-input"
+          placeholder="Tu nombre / zona de entrega (opcional)"
+        />
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="summary-row">
+        <span>Subtotal productos</span>
+        <span id="subtotalText">$0</span>
+      </div>
+      <div class="summary-row" id="shippingSummaryRow" style="display: none;">
+        <span id="shippingSummaryLabel">Envío</span>
+        <span id="shippingSummaryPrice" style="color: var(--yellow); font-weight: 700;">A coordinar por WhatsApp</span>
+      </div>
+      <div class="summary-row total">
+        <span>Precio Total</span>
+        <span id="totalText">$0</span>
+      </div>
+      <button class="whatsapp-btn" id="sendWhatsappBtn">
+        Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- -->
+  <div class="product-modal-overlay" id="productModalOverlay" aria-hidden="true">
+    <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+      <button class="product-modal-close" id="closeProductModal" type="button" aria-label="Cerrar detalle">✕</button>
+      <div class="product-modal-media">
+        <button type="button" class="card-gallery-btn prev" id="modalGalleryPrev" aria-label="Foto anterior">‹</button>
+        <img id="modalProductImg" src="" alt="" />
+        <button type="button" class="card-gallery-btn next" id="modalGalleryNext" aria-label="Siguiente foto">›</button>
+        <div class="modal-thumbs-bar" id="modalThumbsBar"></div>
+      </div>
+      <div class="product-modal-info">
+        <div style="display:flex; flex-direction:column; gap:12px; flex:1;">
+          <span class="product-modal-tag" id="modalProductTag">Vaper</span>
+          <h3 class="product-modal-title" id="modalProductTitle">Nombre del producto</h3>
+          <div class="product-modal-price" id="modalProductPrice">$0</div>
+          <div class="size-selector" id="modalSizeSelector" style="display: none; margin-top: 2px;"></div>
+          <p class="product-modal-desc" id="modalProductDesc"></p>
+        </div>
+        <button class="add-btn" id="modalAddBtn" type="button" style="padding: 15px 20px; font-size: 1rem;">
+          <span>Agregar al carrito</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-modal-overlay" id="promoModalOverlay" aria-hidden="true">
+    <div class="promo-modal" role="dialog" aria-modal="true" aria-labelledby="promoModalTitle">
+      <button class="product-modal-close" id="closePromoModal" type="button" aria-label="Cerrar selector de promoción">✕</button>
+      <div class="promo-modal-header">
+        <div>
+          <span class="product-modal-tag">🔥 Promoción Especial — $53.000</span>
+          <h3 class="product-modal-title" id="promoModalTitle" style="font-size: 1.35rem; margin-top: 6px;">
+            Elegí tus 2 Vapers favoritos
+          </h3>
+        </div>
+        <div class="promo-slots-bar">
+          <div class="promo-slot-pill" id="promoSlot1">
+            <span>1° Vaper: Sin seleccionar</span>
+          </div>
+          <div class="promo-slot-pill" id="promoSlot2">
+            <span>2° Vaper: Sin seleccionar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="promo-flavors-grid" id="promoFlavorsGrid"></div>
+
+      <div class="promo-modal-footer">
+        <div style="display:flex; flex-direction:column;">
+          <span style="font-size:0.78rem; color:var(--text-muted);">Valor de la promo</span>
+          <strong style="font-size:1.3rem; color:var(--yellow);">$53.000</strong>
+        </div>
+        <button class="promo-confirm-btn" id="confirmPromoBtn" type="button" disabled>
+          Seleccioná 2 vapers (0/2)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       1. CONFIGURACIÓN DEL NEGOCIO (WHATSAPP OFICIAL CONFIGURADO)
+       ========================================================================= */
+    const CONFIG_NEGOCIO = {
+      whatsappNumero: "5491125377175",
+      instagramUsuario: "modosport.import"
+    };
+
+    /* =========================================================================
+       2. CONFIGURADOR DE ENVÍOS
+       ========================================================================= */
+    const METODOS_ENVIO = [
+      { id: "retiro", nombre: "Retiro por XXXX", costoTexto: "$XXXX" },
+      { id: "moto", nombre: "Envío por moto", costoTexto: "$XXXX" },
+      { id: "encuentro", nombre: "Punto de encuentro", costoTexto: "$XXXX" }
+    ];
+
+    /* =========================================================================
+       3. CATÁLOGO COMPLETO DE PRODUCTOS
+       ========================================================================= */
+    const PRODUCTOS = [
+      // --- 26 VAPERS ($28.000 c/u los clásicos y $56.000 los nuevos) ---
+      { id: "v1", categoria: "vapers", nombre: "Baja Splash", precio: 28000, archivo: "baja splash.jpg", color: "#10b981", descripcion: "Mix tropical refrescante con notas cítricas de lima y frutas exóticas. Vapor suave y fresco en cada calada." },
+      { id: "v2", categoria: "vapers", nombre: "Blue Razz Ice", precio: 28000, archivo: "blue razz ice.jpg", color: "#3b82f6", descripcion: "Frambuesa azul dulce combinada con un toque helado final. Uno de los sabores más intensos y buscados." },
+      { id: "v3", categoria: "vapers", nombre: "Bubaloo Tutti Frutti", precio: 28000, archivo: "bubaloo tutti frutti.jpg", color: "#ec4899", descripcion: "Clásico sabor a chicle frutal tutti frutti con aroma dulce e intenso." },
+      { id: "v4", categoria: "vapers", nombre: "Bubblegum Mint", precio: 21000, agotado: true, archivo: "Bubblegum Mint.jpg", color: "#e2e8f0", descripcion: "Equilibrio ideal entre chicle clásico y menta fresca, súper refrescante." },
+      { id: "v5", categoria: "vapers", nombre: "Cherry Fuse", precio: 28000, archivo: "cherry fuse.jpg", color: "#ef4444", descripcion: "Fusión intensa de cerezas rojas maduras con un perfil frutal dulce y vibrante." },
+      { id: "v6", categoria: "vapers", nombre: "Cherry Strazz", precio: 28000, archivo: "Cherry Strazz.jpg", color: "#f43f5e", descripcion: "Combinación explosiva de cereza dulce y frutilla fresca con acabado suave." },
+      { id: "v7", categoria: "vapers", nombre: "Cranberry Pineapple", precio: 28000, archivo: "Cranberry Pineapple.jpg", color: "#f59e0b", descripcion: "Contraste tropical entre el toque ácido del arándano rojo y la dulzura del ananá." },
+      { id: "v8", categoria: "vapers", nombre: "Grape Raspberry", precio: 21000, agotado: true, archivo: "Grape Raspberry.jpg", color: "#8b5cf6", descripcion: "Uva morada dulce fusionada con frambuesas silvestres. Sabor profundo y persistente." },
+      { id: "v9", categoria: "vapers", nombre: "Green Apple Ice", precio: 28000, archivo: "green apple ice.jpg", color: "#22c55e", descripcion: "Manzana verde crujiente con el punto justo de acidez y un golpe frío refrescante." },
+      { id: "v10", categoria: "vapers", nombre: "Green Apple Slush", precio: 28000, archivo: "Green Apple Slush.jpg", color: "#84cc16", descripcion: "Granizado helado de manzana verde dulce y refrescante." },
+      { id: "v11", categoria: "vapers", nombre: "Love Dream", precio: 21000, agotado: true, archivo: "Love Dream.jpg", color: "#eab308", descripcion: "Mezcla frutal dulce de frutos rojos y notas tropicales suaves." },
+      { id: "v12", categoria: "vapers", nombre: "Mango Magic", precio: 28000, archivo: "mango magic.jpg", color: "#fb923c", descripcion: "Mango maduro jugoso con perfil tropical intenso y final refrescante." },
+      { id: "v13", categoria: "vapers", nombre: "Melon Grape Menthol", precio: 28000, archivo: "melon grape menthol.jpg", color: "#14b8a6", descripcion: "Trío equilibrado de melón dulce, uva intensa y frescura mentolada." },
+      { id: "v14", categoria: "vapers", nombre: "Miami Mint", precio: 28000, archivo: "Miami Mint.jpg", color: "#2dd4bf", descripcion: "Menta suave y cristalina con un frescor limpio que perdura." },
+      { id: "v15", categoria: "vapers", nombre: "Peach Mango Watermelon", precio: 28000, archivo: "peach mango watermelon.jpg", color: "#f97316", descripcion: "Cóctel triple de durazno, mango y sandía. Dulce, jugoso y súper frutal." },
+      { id: "v16", categoria: "vapers", nombre: "Peach+", precio: 28000, archivo: "Peach+.jpg", color: "#fb7185", descripcion: "Sabor puro a durazno dulce recién cosechado con notas suaves y aromáticas." },
+      { id: "v17", categoria: "vapers", nombre: "Sour Apple Ice", precio: 28000, archivo: "sour apple ice.jpg", color: "#4ade80", descripcion: "Manzana ácida intensa acompañada de una sensación helada al exhalar." },
+      { id: "v18", categoria: "vapers", nombre: "Strawberry Dragonfruit", precio: 28000, archivo: "Strawberry Dragonfruit.jpg", color: "#a855f7", descripcion: "Frutilla dulce combinada con pitahaya exótica. Perfil suave y tropical." },
+      { id: "v19", categoria: "vapers", nombre: "Strawberry Ice", precio: 28000, archivo: "Strawberry Ice.jpg", color: "#ef4444", descripcion: "Frutillas frescas dulces con un toque helado clásico." },
+      { id: "v20", categoria: "vapers", nombre: "Strawberry Watermelon", precio: 28000, archivo: "strawberry watermelon.jpg", color: "#dc2626", descripcion: "Dúo infalible de frutilla y sandía jugosa, ideal para todo el día." },
+      { id: "v21", categoria: "vapers", nombre: "Tigers Blood", precio: 28000, archivo: "tigers blood.jpg", color: "#ea580c", descripcion: "Mezcla intensa de sandía, frutilla y un delicado toque de coco." },
+      { id: "v22", categoria: "vapers", nombre: "Watermelon Ice", precio: 28000, archivo: "watermelon ice.jpg", color: "#f87171", descripcion: "Sandía dulce y refrescante con efecto frío en cada calada." },
+      { id: "v23", categoria: "vapers", nombre: "Watermelon Mint", precio: 21000, agotado: true, archivo: "Watermelon Mint.jpg", color: "#be123c", descripcion: "Sandía jugosa combinada con hojas de menta fresca." },
+      { id: "v24", categoria: "vapers", nombre: "Watermelon", precio: 28000, archivo: "Watermelon.jpg", color: "#38bdf8", descripcion: "Sabor clásico y puro a sandía dulce recién cortada." },
+      { id: "v25", categoria: "vapers", nombre: "Muha Meds 1", precio: 56000, archivo: "vaper nuevo 1.jpg", aliasArchivos: ["vaper nuevo 1", "vaper nuevo1", "nuevo 1", "vaper 1", "muhameds 1", "muhameds1", "muha meds 1", "muhameds"], color: "#a855f7", descripcion: "Vaper Muha Meds disponible en el catálogo. Consultanos por sus notas y perfil de sabor." },
+      { id: "v26", categoria: "vapers", nombre: "Muha Meds 2", precio: 56000, agotado: true, archivo: "vaper nuevo 2.jpg", aliasArchivos: ["vaper nuevo 2", "vaper nuevo2", "nuevo 2", "vaper 2", "muhameds 2", "muhameds2", "muha meds 2"], color: "#facc15", descripcion: "Vaper Muha Meds disponible en el catálogo. Consultanos por sus notas y perfil de sabor." },
+
+      // --- ACCESORIOS ---
+      { id: "a1", categoria: "accesorios", nombre: "AirPods Pro 2", precio: 23000, archivo: "airpods pro 2.jpg", aliasArchivos: ["airpods pro 2", "airpods", "airpods pro", "auriculares"], color: "#ffffff", descripcion: "Auriculares inalámbricos con excelente calidad de sonido, graves definidos, estuche de carga rápida y controles táctiles." },
+
+      // --- GAFAS (13 MODELOS 100% ENDURO) ---
+      { id: "g1", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 1", precio: 23000, archivo: "gafas 1.jpg", aliasArchivos: ["gafas 1", "gafa 1", "gafas1", "gafa1"], color: "#facc15", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Lente de alta definición con protección UV y ajuste antideslizante." },
+      { id: "g2", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 2", precio: 23000, archivo: "gafas 2.jpg", aliasArchivos: ["gafas 2", "gafa 2", "gafas2", "gafa2"], color: "#8b5cf6", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Lente espejado resistente a impactos y espuma de triple capa." },
+      { id: "g3", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 3", precio: 23000, archivo: "gafas 3.jpg", aliasArchivos: ["gafas 3", "gafa 3", "gafas3", "gafa3"], color: "#ef4444", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Gran campo de visión periférica y ventilación anti-empañe." },
+      { id: "g4", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 4", precio: 23000, archivo: "gafas 4.jpg", aliasArchivos: ["gafas 4", "gafa 4", "gafas4", "gafa4"], color: "#3b82f6", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Correa ancha con silicona interna para máxima fijación en el casco." },
+      { id: "g5", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 5", precio: 23000, archivo: "gafas 5.jpg", aliasArchivos: ["gafas 5", "gafa 5", "gafas5", "gafa5"], color: "#10b981", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Marco flexible de alta resistencia y calce ergonómico." },
+      { id: "g6", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 6", precio: 23000, archivo: "gafas 6.jpg", aliasArchivos: ["gafas 6", "gafa 6", "gafas6", "gafa6"], color: "#f97316", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Diseño aerodinámico con filtro solar de alto contraste." },
+      { id: "g7", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 7", precio: 23000, archivo: "gafas 7.jpg", aliasArchivos: ["gafas 7", "gafa 7", "gafas7", "gafa7"], color: "#ec4899", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Protección total contra polvo, barro y viento en circuitos exigentes." },
+      { id: "g8", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 8", precio: 23000, archivo: "gafas 8.jpg", aliasArchivos: ["gafas 8", "gafa 8", "gafas8", "gafa8"], color: "#06b6d4", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Edición especial con lente multicapa y confort prolongado." },
+      { id: "g9", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 9", precio: 23000, archivo: "gafas 9.jpg", aliasArchivos: ["gafas 9", "gafa 9", "gafas9", "gafa9"], color: "#a855f7", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Lente de policarbonato de alta resistencia y ajuste firme." },
+      { id: "g10", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 10", precio: 23000, archivo: "gafas 10.jpg", aliasArchivos: ["gafas 10", "gafa 10", "gafas10", "gafa10"], color: "#eab308", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Visión clara en todo tipo de terrenos y espuma absorbente." },
+      { id: "g11", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 11", precio: 23000, archivo: "gafas 11.jpg", aliasArchivos: ["gafas 11", "gafa 11", "gafas11", "gafa11"], color: "#22c55e", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Armazón liviano y correa elástica regulable con grip de silicona." },
+      { id: "g12", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 12", precio: 23000, archivo: "gafas 12.jpg", aliasArchivos: ["gafas 12", "gafa 12", "gafas12", "gafa12"], color: "#f43f5e", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Lente espejado con protección UV400 y ventilación perimetral." },
+      { id: "g13", categoria: "gafas", nombre: "Gafas 100% Enduro - Modelo 13", precio: 23000, archivo: "gafas 13.jpg", aliasArchivos: ["gafas 13", "gafa 13", "gafas13", "gafa13"], color: "#38bdf8", descripcion: "Antiparras / gafas deportivas 100% ideales para enduro, motocross y MTB. Máximo sellado y comodidad para entrenamientos y competencia." },
+
+      // --- REMERAS Y CAMISA (8 REMERAS + 1 CAMISA: Primeras 2 remeras y la camisa Talle M, las otras 6 remeras Talle L) ---
+      { id: "r1", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 1", precio: 50000, talles: ["M"], baseGaleria: ["remera 1", "remera uno"], archivo: "remera 1 foto 1.jpg", aliasArchivos: ["remera 1 foto 1", "remera uno foto uno", "remera 1", "remera1", "remera modelo 1"], color: "#8b5cf6", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle M." },
+      { id: "r2", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 2", precio: 50000, talles: ["M"], baseGaleria: ["remera 2", "remera dos"], archivo: "remera 2 foto 1.jpg", aliasArchivos: ["remera 2 foto 1", "remera dos foto uno", "remera 2", "remera2", "remera modelo 2"], color: "#facc15", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle M." },
+      { id: "r3", categoria: "remeras", nombre: "Camisa Modo Sport", precio: 60000, talles: ["M"], baseGaleria: ["camisa 1", "camisa", "camisa uno"], archivo: "camisa 1 foto 1.jpg", aliasArchivos: ["camisa 1 foto 1", "camisa uno foto uno", "camisa foto 1", "camisa 1", "camisa", "camisa1"], color: "#38bdf8", descripcion: "Camisa de corte moderno y tela fresca de primera calidad, perfecta para salidas y ocasiones especiales. Disponible únicamente en Talle M." },
+      { id: "r4", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 3", precio: 50000, talles: ["L"], baseGaleria: ["remera 3", "remera tres"], archivo: "remera 3 foto 1.jpg", aliasArchivos: ["remera 3 foto 1", "remera tres foto uno", "remera 3", "remera3", "remera modelo 3"], color: "#10b981", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+      { id: "r5", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 4", precio: 50000, talles: ["L"], baseGaleria: ["remera 4", "remera cuatro"], archivo: "remera 4 foto 1.jpg", aliasArchivos: ["remera 4 foto 1", "remera cuatro foto uno", "remera 4", "remera4", "remera modelo 4"], color: "#f97316", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+      { id: "r6", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 5", precio: 50000, talles: ["L"], baseGaleria: ["remera 5", "remera cinco"], archivo: "remera 5 foto 1.jpg", aliasArchivos: ["remera 5 foto 1", "remera cinco foto uno", "remera 5", "remera5", "remera modelo 5"], color: "#ec4899", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+      { id: "r7", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 6", precio: 50000, talles: ["L"], baseGaleria: ["remera 6", "remera seis"], archivo: "remera 6 foto 1.jpg", aliasArchivos: ["remera 6 foto 1", "remera seis foto uno", "remera 6", "remera6", "remera modelo 6"], color: "#06b6d4", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+      { id: "r8", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 7", precio: 50000, talles: ["L"], baseGaleria: ["remera 7", "remera siete"], archivo: "remera 7 foto 1.jpg", aliasArchivos: ["remera 7 foto 1", "remera siete foto uno", "remera 7", "remera7", "remera modelo 7"], color: "#eab308", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+      { id: "r9", categoria: "remeras", nombre: "Remera Modo Sport - Modelo 8", precio: 50000, talles: ["L"], baseGaleria: ["remera 8", "remera ocho"], archivo: "remera 8 foto 1.jpg", aliasArchivos: ["remera 8 foto 1", "remera ocho foto uno", "remera 8", "remera8", "remera modelo 8"], color: "#ef4444", descripcion: "Remera de corte urbano y excelente calidad de tela, ideal para salir o usar todos los días. Disponible únicamente en Talle L." },
+
+      // --- PERFUMES ---
+      { id: "p1", categoria: "perfumes", nombre: "Lattafa Velvet Rose EDP 100 ml", precio: 40000, archivo: "perfume 1.jpg", aliasArchivos: ["perfume 1", "perfume1", "perfumes 1", "lattafa velvet rose", "velvet rose"], color: "#ec4899", descripcion: "Eau de Parfum 100 ml de Lattafa. Fragancia floral oriental sofisticada, envolvente y de gran fijación en piel." },
+      { id: "p2", categoria: "perfumes", nombre: "Tester Pacha Ibiza EDT 100 ml", precio: 17000, archivo: "perfume 2.jpg", aliasArchivos: ["perfume 2", "perfume2", "perfumes 2", "tester pacha ibiza", "pacha ibiza"], color: "#facc15", descripcion: "Eau de Toilette 100 ml (Formato Tester). Aroma joven, fresco y vibrante ideal para uso diario o salidas." },
+      { id: "p3", categoria: "perfumes", nombre: "Dolce & Gabbana Devotion for Men EDP 50 ml", precio: 65000, archivo: "perfume 3.jpg", aliasArchivos: ["perfume 3", "perfume3", "perfumes 3", "dolce gabbana devotion", "devotion for men", "devotion"], color: "#38bdf8", descripcion: "Eau de Parfum 50 ml de Dolce & Gabbana. Fragancia masculina elegante e intensa con notas especiadas y amaderadas." },
+      { id: "p4", categoria: "perfumes", nombre: "Lattafa Love in Paris EDP 100 ml", precio: 57000, archivo: "perfume 4.jpg", aliasArchivos: ["perfume 4", "perfume4", "perfumes 4", "lattafa love in paris", "love in paris"], color: "#8b5cf6", descripcion: "Eau de Parfum 100 ml de Lattafa. Perfume árabe de alta proyección con notas dulces, elegantes y duraderas." }
+    ];
+
+    const PROMO_DOS_VAPERS = {
+      id: "promo-2-vapers",
+      nombre: "Promo 2 Vapers a Elección",
+      precio: 53000,
+      archivo: "promo vapers.jpg",
+      aliasArchivos: [
+        "promo vapers",
+        "promo vaper seleccion",
+        "promo vaper selección",
+        "promo 2 vapers",
+        "promo 2 vapers a eleccion",
+        "promo 2 vapers a elección",
+        "promo vaper eleccion",
+        "promo vaper elección",
+        "promo vaper",
+        "promo",
+        "promocion vapers",
+        "promocion 2 vapers"
+      ],
+      descripcion: "Elegí 2 vapers de los sabores disponibles (pueden ser iguales o combinados) a un precio promocional de $53.000."
+    };
+
+    /* =========================================================================
+       3.B VINCULADOR INTELIGENTE DE IMÁGENES LOCALES (SOPORTA JPG, JPEG, PNG, WEBP)
+       ========================================================================= */
+    const EXTENSIONES_POSIBLES = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp",
+      ".jpg.png",
+      ".jpg.jpeg",
+      ".jpg.jpg",
+      ".jpg.webp",
+      ".png.png",
+      ".jpeg.jpg",
+      ".JPG",
+      ".JPEG",
+      ".PNG",
+      ".WEBP"
+    ];
+
+    function obtenerCandidatosImagen(item) {
+      const bases = [];
+      const agregarBase = (str) => {
+        if (!str) return;
+        const limpio = str.replace(/\.(jpg|jpeg|png|webp)$/i, "").trim();
+        if (!limpio) return;
+        if (!bases.includes(limpio)) bases.push(limpio);
+        const min = limpio.toLowerCase();
+        if (!bases.includes(min)) bases.push(min);
+        const sinAcentos = min.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        if (!bases.includes(sinAcentos)) bases.push(sinAcentos);
+      };
+
+      agregarBase(item.archivo);
+      if (Array.isArray(item.aliasArchivos)) {
+        item.aliasArchivos.forEach(agregarBase);
+      }
+      agregarBase(item.nombre);
+
+      const candidatos = [];
+      bases.forEach(base => {
+        EXTENSIONES_POSIBLES.forEach(ext => {
+          const archivoCompleto = base + ext;
+          try {
+            const rutaUri = encodeURI(archivoCompleto);
+            if (!candidatos.includes(rutaUri)) candidatos.push(rutaUri);
+          } catch (e) {}
+          try {
+            const rutaComp = encodeURIComponent(archivoCompleto);
+            if (!candidatos.includes(rutaComp)) candidatos.push(rutaComp);
+          } catch (e) {}
+        });
+      });
+
+      return candidatos;
+    }
+
+    function conectarImagenConRespaldo(imgEl, item, fallbackSvg) {
+      if (!imgEl) return;
+
+      if (item.urlResuelta) {
+        imgEl.onerror = () => {
+          imgEl.onerror = null;
+          imgEl.src = fallbackSvg;
+        };
+        imgEl.src = item.urlResuelta;
+        return;
+      }
+
+      const candidatos = obtenerCandidatosImagen(item);
+      let idx = 0;
+
+      const intentarSiguiente = () => {
+        if (idx >= candidatos.length) {
+          imgEl.onerror = null;
+          imgEl.src = fallbackSvg;
+          return;
+        }
+        imgEl.src = candidatos[idx++];
+      };
+
+      imgEl.onload = () => {
+        const srcActual = imgEl.getAttribute("src") || "";
+        if (srcActual && !srcActual.startsWith("data:image/svg+xml")) {
+          item.urlResuelta = srcActual;
+        }
+      };
+
+      imgEl.onerror = intentarSiguiente;
+      intentarSiguiente();
+    }
+
+    /* Buscador automático de galería de 2 a 4 fotos (ej: "remera 1 foto 1", "remera 1 foto 2", etc.) */
+    function resolverCandidatosSlot(nombresBaseSlot) {
+      return new Promise((resolve) => {
+        const candidatos = [];
+        nombresBaseSlot.forEach(base => {
+          const bMin = base.toLowerCase().trim();
+          [base.trim(), bMin].forEach(variante => {
+            EXTENSIONES_POSIBLES.forEach(ext => {
+              try {
+                const uri = encodeURI(variante + ext);
+                if (!candidatos.includes(uri)) candidatos.push(uri);
+              } catch (e) {}
+            });
+          });
+        });
+
+        let idx = 0;
+        const probar = () => {
+          if (idx >= candidatos.length) {
+            resolve(null);
+            return;
+          }
+          const urlPrueba = candidatos[idx++];
+          const tester = new Image();
+          tester.onload = () => resolve(urlPrueba);
+          tester.onerror = probar;
+          tester.src = urlPrueba;
+        };
+        probar();
+      });
+    }
+
+    async function cargarGaleriaProducto(prod, onUpdate) {
+      if (!Array.isArray(prod.baseGaleria) || prod.baseGaleria.length === 0) return;
+      if (Array.isArray(prod.galeriaResuelta)) {
+        onUpdate(prod.galeriaResuelta);
+        return;
+      }
+
+      const numEnPalabras = { 1: "uno", 2: "dos", 3: "tres", 4: "cuatro" };
+      const promesasSlots = [1, 2, 3, 4].map(numFoto => {
+        const variantesSlot = [];
+        const palabraFoto = numEnPalabras[numFoto];
+
+        prod.baseGaleria.forEach(prefijo => {
+          variantesSlot.push(
+            `${prefijo} foto ${numFoto}`,
+            `${prefijo} foto${numFoto}`,
+            `${prefijo} foto ${palabraFoto}`,
+            `${prefijo} - foto ${numFoto}`,
+            `${prefijo}-${numFoto}`,
+            `${prefijo}_${numFoto}`
+          );
+          if (numFoto === 1) {
+            variantesSlot.push(prefijo);
+          }
+        });
+
+        return resolverCandidatosSlot(variantesSlot);
+      });
+
+      const resultados = await Promise.all(promesasSlots);
+      const encontradas = resultados.filter(Boolean);
+      prod.galeriaResuelta = encontradas;
+      if (encontradas.length > 0) {
+        prod.urlResuelta = encontradas[0];
+      }
+      onUpdate(encontradas);
+    }
+
+    function crearPosterPromoVapers() {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540">
+        <defs>
+          <linearGradient id="bgPromo" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2e1065"/>
+            <stop offset="55%" stop-color="#1e1b4b"/>
+            <stop offset="100%" stop-color="#0d0d11"/>
+          </linearGradient>
+        </defs>
+        <rect width="360" height="540" fill="url(#bgPromo)"/>
+        <circle cx="180" cy="290" r="120" fill="#8b5cf6" fill-opacity="0.18"/>
+        <path d="M196 55 L152 145 L188 145 L162 225 L218 128 L180 128 Z" fill="none" stroke="#8b5cf6" stroke-width="6"/>
+        <path d="M200 55 L156 145 L192 145 L166 225 L222 128 L184 128 Z" fill="none" stroke="#facc15" stroke-width="4"/>
+        <text x="180" y="150" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="24" letter-spacing="2">MODO SPORT</text>
+        <!-- Vaper Izquierdo -->
+        <g transform="rotate(-8 135 340)">
+          <rect x="112" y="248" width="28" height="24" rx="5" fill="#f8fafc"/>
+          <rect x="95" y="270" width="86" height="130" rx="13" fill="#f8fafc" stroke="#8b5cf6" stroke-width="5"/>
+          <rect x="160" y="270" width="21" height="130" rx="7" fill="#8b5cf6"/>
+        </g>
+        <!-- Vaper Derecho -->
+        <g transform="rotate(8 225 340)">
+          <rect x="198" y="248" width="28" height="24" rx="5" fill="#f8fafc"/>
+          <rect x="180" y="270" width="86" height="130" rx="13" fill="#f8fafc" stroke="#facc15" stroke-width="5"/>
+          <rect x="245" y="270" width="21" height="130" rx="7" fill="#facc15"/>
+        </g>
+        <rect x="65" y="425" width="230" height="44" rx="22" fill="#facc15"/>
+        <text x="180" y="453" text-anchor="middle" fill="#0d0d11" font-family="sans-serif" font-weight="900" font-size="20">2 VAPERS x $53.000</text>
+        <text x="180" y="498" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-weight="700" font-size="14">A TU ELECCIÓN</text>
+      </svg>`;
+      return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+    }
+
+    /* =========================================================================
+       4. GENERADOR DE RESPALDO VISUAL
+       ========================================================================= */
+    function crearPosterModoSport(prod) {
+      let figuraProducto = "";
+
+      if (prod.categoria === "accesorios") {
+        figuraProducto = `
+          <rect x="85" y="290" width="110" height="120" rx="18" fill="#f1f5f9" stroke="${prod.color}" stroke-width="4"/>
+          <rect x="175" y="340" width="100" height="75" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+          <path d="M135 330 L125 352 L138 352 L130 374 L148 346 L135 346 Z" fill="#8b5cf6"/>
+        `;
+      } else if (prod.categoria === "gafas") {
+        figuraProducto = `
+          <path d="M75 315 Q180 285 285 315 L270 385 Q215 395 195 358 Q180 338 165 358 Q145 395 90 385 Z" fill="#1e1e2c" stroke="${prod.color}" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M90 326 Q180 302 270 326 L258 374 Q212 380 196 348 Q180 328 164 348 Q148 380 102 374 Z" fill="${prod.color}" fill-opacity="0.45"/>
+          <text x="180" y="352" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="18" letter-spacing="1">100%</text>
+        `;
+      } else if (prod.categoria === "remeras") {
+        figuraProducto = `
+          <path d="M125 270 L155 270 Q180 288 205 270 L235 270 L265 315 L238 335 L222 312 L222 425 L138 425 L138 312 L122 335 L95 315 Z" fill="#1e1e2c" stroke="${prod.color}" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M184 315 L168 350 L182 350 L172 382 L194 344 L180 344 Z" fill="#facc15"/>
+        `;
+      } else if (prod.categoria === "perfumes") {
+        figuraProducto = `
+          <rect x="162" y="252" width="36" height="20" rx="4" fill="#facc15"/>
+          <rect x="170" y="272" width="20" height="12" fill="#cbd5e1"/>
+          <rect x="128" y="284" width="104" height="136" rx="18" fill="#1e1e2c" stroke="${prod.color}" stroke-width="5"/>
+          <rect x="146" y="320" width="68" height="64" rx="8" fill="${prod.color}" fill-opacity="0.22" stroke="#facc15" stroke-width="2"/>
+          <text x="180" y="357" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="14" letter-spacing="1.5">PARFUM</text>
+        `;
+      } else {
+        figuraProducto = `
+          <rect x="148" y="255" width="32" height="28" rx="6" fill="#f8fafc"/>
+          <rect x="130" y="280" width="100" height="145" rx="14" fill="#f8fafc" stroke="${prod.color}" stroke-width="5"/>
+          <rect x="206" y="280" width="24" height="145" rx="8" fill="${prod.color}"/>
+          <rect x="210" y="325" width="16" height="85" rx="5" fill="#09090b"/>
+          <text x="150" y="385" transform="rotate(-90 150 385)" fill="${prod.color}" font-family="sans-serif" font-weight="800" font-size="17" letter-spacing="3">ELFBAR</text>
+        `;
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8c8c8c"/>
+            <stop offset="76%" stop-color="#7c7c7c"/>
+            <stop offset="76.5%" stop-color="#9ca3af"/>
+            <stop offset="100%" stop-color="#6b7280"/>
+          </linearGradient>
+        </defs>
+        <rect width="360" height="540" fill="url(#bg)"/>
+        <path d="M196 80 L152 175 L188 175 L162 260 L218 158 L180 158 Z" fill="none" stroke="#8b5cf6" stroke-width="6"/>
+        <path d="M200 80 L156 175 L192 175 L166 260 L222 158 L184 158 Z" fill="none" stroke="#facc15" stroke-width="4"/>
+        <text x="180" y="180" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="25" letter-spacing="2">MODO SPORT</text>
+        ${figuraProducto}
+        <text x="180" y="490" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="14">${prod.nombre}</text>
+      </svg>`;
+      return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+    }
+
+    function formatearPesos(valor) {
+      if (!valor || valor === 0) return "Consultar";
+      return "$" + valor.toLocaleString("es-AR");
+    }
+
+    /* =========================================================================
+       5. RENDERIZADO DEL CATÁLOGO
+       ========================================================================= */
+    function renderizarCatalogo() {
+      const grids = {
+        vapers: document.getElementById("grid-vapers"),
+        accesorios: document.getElementById("grid-accesorios"),
+        gafas: document.getElementById("grid-gafas"),
+        remeras: document.getElementById("grid-remeras"),
+        perfumes: document.getElementById("grid-perfumes")
+      };
+
+      Object.values(grids).forEach(g => { if (g) g.innerHTML = ""; });
+
+      // 1. Insertar la tarjeta de Promoción 2 Vapers en el primer lugar de la sección Vapers
+      if (grids.vapers) {
+        const promoCard = document.createElement("article");
+        promoCard.className = "product-card promo-card";
+        const fallbackPromoSvg = crearPosterPromoVapers();
+
+        promoCard.innerHTML = `
+          <div class="product-showcase">
+            <span class="promo-ribbon">🔥 PROMO 2x</span>
+            <img
+              alt="${PROMO_DOS_VAPERS.nombre}"
+              class="product-img"
+            />
+          </div>
+          <div class="product-body">
+            <div>
+              <h3 class="product-name">${PROMO_DOS_VAPERS.nombre}</h3>
+              <div class="product-price">${formatearPesos(PROMO_DOS_VAPERS.precio)}</div>
+            </div>
+            <button class="add-btn promo-select-btn" type="button" id="openPromoSelectorBtn">
+              <span>Seleccionar 2 vapers</span>
+            </button>
+          </div>
+        `;
+
+        const promoImg = promoCard.querySelector(".product-img");
+        conectarImagenConRespaldo(promoImg, PROMO_DOS_VAPERS, fallbackPromoSvg);
+
+        promoCard.addEventListener("click", () => abrirModalPromo());
+        grids.vapers.appendChild(promoCard);
+      }
+
+      // 2. Renderizar los 26 vapers y el resto de los productos sin quitar ninguno
+      PRODUCTOS.forEach(prod => {
+        const contenedor = grids[prod.categoria];
+        if (!contenedor) return;
+
+        const estaAgotado = Boolean(prod.agotado);
+        const card = document.createElement("article");
+        card.className = `product-card ${estaAgotado ? "out-of-stock" : ""}`;
+
+        const fallbackSvg = crearPosterModoSport(prod);
+        const tieneTalles = Array.isArray(prod.talles) && prod.talles.length > 0;
+        let talleElegidoCard = tieneTalles ? prod.talles[0] : null;
+
+        const selectorTallesHtml = tieneTalles ? `
+          <div class="size-selector">
+            <span class="size-label">Talle:</span>
+            ${prod.talles.map((t, idx) => `<button type="button" class="size-btn ${idx === 0 ? "active" : ""}" data-size="${t}">${t}</button>`).join("")}
+          </div>
+        ` : "";
+
+        card.innerHTML = `
+          <div class="product-showcase">
+            ${estaAgotado ? `<div class="sold-out-ribbon">AGOTADO • AGOTADO • AGOTADO</div>` : ""}
+            <button type="button" class="card-gallery-btn prev" aria-label="Foto anterior">‹</button>
+            <img
+              alt="${prod.nombre}"
+              class="product-img"
+            />
+            <button type="button" class="card-gallery-btn next" aria-label="Siguiente foto">›</button>
+            <div class="card-gallery-dots"></div>
+          </div>
+          <div class="product-body">
+            <div>
+              <h3 class="product-name">${prod.nombre}</h3>
+              <div class="product-price">${formatearPesos(prod.precio)}</div>
+              ${selectorTallesHtml}
+            </div>
+            <button class="add-btn ${estaAgotado ? "disabled-btn" : ""}" type="button" data-id="${prod.id}" ${estaAgotado ? "disabled" : ""}>
+              <span>${estaAgotado ? "Agotado" : "Agregar al carrito"}</span>
+            </button>
+          </div>
+        `;
+
+        const prodImg = card.querySelector(".product-img");
+
+        if (Array.isArray(prod.baseGaleria)) {
+          const prevBtn = card.querySelector(".card-gallery-btn.prev");
+          const nextBtn = card.querySelector(".card-gallery-btn.next");
+          const dotsWrap = card.querySelector(".card-gallery-dots");
+          let indiceFotoCard = 0;
+
+          // Mostramos el póster mientras detecta al instante foto 1, foto 2, foto 3...
+          prodImg.src = fallbackSvg;
+
+          cargarGaleriaProducto(prod, (urlsFotos) => {
+            if (!urlsFotos || urlsFotos.length === 0) {
+              conectarImagenConRespaldo(prodImg, prod, fallbackSvg);
+              return;
+            }
+
+            prodImg.onerror = null;
+            prodImg.src = urlsFotos[0];
+
+            if (urlsFotos.length <= 1) return;
+
+            prevBtn.style.display = "flex";
+            nextBtn.style.display = "flex";
+            dotsWrap.style.display = "flex";
+
+            const renderizarEstadoCard = () => {
+              prodImg.onerror = null;
+              prodImg.src = urlsFotos[indiceFotoCard];
+              dotsWrap.innerHTML = urlsFotos
+                .map((_, i) => `<span class="card-gallery-dot ${i === indiceFotoCard ? "active" : ""}" data-idx="${i}"></span>`)
+                .join("");
+              dotsWrap.querySelectorAll(".card-gallery-dot").forEach(dot => {
+                dot.addEventListener("click", (ev) => {
+                  ev.stopPropagation();
+                  indiceFotoCard = Number(dot.dataset.idx);
+                  renderizarEstadoCard();
+                });
+              });
+            };
+
+            prevBtn.addEventListener("click", (ev) => {
+              ev.stopPropagation();
+              indiceFotoCard = (indiceFotoCard - 1 + urlsFotos.length) % urlsFotos.length;
+              renderizarEstadoCard();
+            });
+
+            nextBtn.addEventListener("click", (ev) => {
+              ev.stopPropagation();
+              indiceFotoCard = (indiceFotoCard + 1) % urlsFotos.length;
+              renderizarEstadoCard();
+            });
+
+            // Soporte táctil (swipe con el dedo) para pasar fotos en celular
+            const showcaseEl = card.querySelector(".product-showcase");
+            let touchStartX = 0;
+            let touchEndX = 0;
+            showcaseEl.addEventListener("touchstart", (ev) => {
+              touchStartX = ev.changedTouches[0].screenX;
+            }, { passive: true });
+            showcaseEl.addEventListener("touchend", (ev) => {
+              touchEndX = ev.changedTouches[0].screenX;
+              const diff = touchStartX - touchEndX;
+              if (Math.abs(diff) > 40) {
+                if (diff > 0) {
+                  indiceFotoCard = (indiceFotoCard + 1) % urlsFotos.length;
+                } else {
+                  indiceFotoCard = (indiceFotoCard - 1 + urlsFotos.length) % urlsFotos.length;
+                }
+                renderizarEstadoCard();
+              }
+            }, { passive: true });
+
+            renderizarEstadoCard();
+          });
+        } else {
+          conectarImagenConRespaldo(prodImg, prod, fallbackSvg);
+        }
+
+        if (tieneTalles) {
+          const botonesTalle = card.querySelectorAll(".size-btn");
+          botonesTalle.forEach(b => {
+            b.addEventListener("click", (e) => {
+              e.stopPropagation();
+              botonesTalle.forEach(x => x.classList.remove("active"));
+              b.classList.add("active");
+              talleElegidoCard = b.dataset.size;
+            });
+          });
+        }
+
+        const btn = card.querySelector(".add-btn");
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (estaAgotado) return;
+          agregarAlCarrito(prod.id, e.currentTarget, talleElegidoCard);
+        });
+
+        card.addEventListener("click", () => abrirModalProducto(prod, talleElegidoCard));
+
+        contenedor.appendChild(card);
+      });
+    }
+
+    /* =========================================================================
+       5.B MODAL EMERGENTE DE DETALLE DE PRODUCTO
+       ========================================================================= */
+    const productModalOverlay = document.getElementById("productModalOverlay");
+    const closeProductModal = document.getElementById("closeProductModal");
+    const modalProductImg = document.getElementById("modalProductImg");
+    const modalGalleryPrev = document.getElementById("modalGalleryPrev");
+    const modalGalleryNext = document.getElementById("modalGalleryNext");
+    const modalThumbsBar = document.getElementById("modalThumbsBar");
+    const modalProductTag = document.getElementById("modalProductTag");
+    const modalProductTitle = document.getElementById("modalProductTitle");
+    const modalProductPrice = document.getElementById("modalProductPrice");
+    const modalSizeSelector = document.getElementById("modalSizeSelector");
+    const modalProductDesc = document.getElementById("modalProductDesc");
+    const modalAddBtn = document.getElementById("modalAddBtn");
+    let productoModalActual = null;
+    let talleModalActual = null;
+    let galeriaModalActual = [];
+    let indiceFotoModal = 0;
+
+    const NOMBRES_CATEGORIA = {
+      vapers: "Vaper",
+      accesorios: "Accesorios",
+      gafas: "Gafas 100%",
+      remeras: "Remeras",
+      perfumes: "Perfumes"
+    };
+
+    function actualizarVistaGaleriaModal() {
+      if (!galeriaModalActual || galeriaModalActual.length <= 1) {
+        if (modalGalleryPrev) modalGalleryPrev.style.display = "none";
+        if (modalGalleryNext) modalGalleryNext.style.display = "none";
+        if (modalThumbsBar) {
+          modalThumbsBar.style.display = "none";
+          modalThumbsBar.innerHTML = "";
+        }
+        return;
+      }
+
+      modalProductImg.src = galeriaModalActual[indiceFotoModal];
+      modalGalleryPrev.style.display = "flex";
+      modalGalleryNext.style.display = "flex";
+      modalThumbsBar.style.display = "flex";
+
+      modalThumbsBar.innerHTML = galeriaModalActual
+        .map((url, idx) => `
+          <div class="modal-thumb-item ${idx === indiceFotoModal ? "active" : ""}" data-idx="${idx}">
+            <img src="${url}" alt="Miniatura ${idx + 1}" />
+          </div>
+        `)
+        .join("");
+
+      modalThumbsBar.querySelectorAll(".modal-thumb-item").forEach(thumb => {
+        thumb.addEventListener("click", () => {
+          indiceFotoModal = Number(thumb.dataset.idx);
+          actualizarVistaGaleriaModal();
+        });
+      });
+    }
+
+    function abrirModalProducto(prod, tallePreseleccionado = null) {
+      productoModalActual = prod;
+      const fallbackSvg = crearPosterModoSport(prod);
+      modalProductImg.alt = prod.nombre;
+      conectarImagenConRespaldo(modalProductImg, prod, fallbackSvg);
+
+      galeriaModalActual = Array.isArray(prod.galeriaResuelta) ? prod.galeriaResuelta : [];
+      indiceFotoModal = 0;
+      actualizarVistaGaleriaModal();
+
+      if (Array.isArray(prod.baseGaleria) && (!prod.galeriaResuelta || prod.galeriaResuelta.length === 0)) {
+        cargarGaleriaProducto(prod, (urls) => {
+          if (productoModalActual && productoModalActual.id === prod.id && urls.length > 1) {
+            galeriaModalActual = urls;
+            indiceFotoModal = 0;
+            actualizarVistaGaleriaModal();
+          }
+        });
+      }
+
+      modalProductTag.textContent = NOMBRES_CATEGORIA[prod.categoria] || "Producto";
+      modalProductTitle.textContent = prod.nombre;
+      modalProductPrice.textContent = formatearPesos(prod.precio);
+      modalProductDesc.textContent = prod.descripcion || "Consultanos por más detalles de este producto.";
+
+      if (Array.isArray(prod.talles) && prod.talles.length > 0) {
+        talleModalActual = tallePreseleccionado || prod.talles[0];
+        modalSizeSelector.style.display = "flex";
+        modalSizeSelector.innerHTML = `
+          <span class="size-label">Seleccionar talle:</span>
+          ${prod.talles.map(t => `<button type="button" class="size-btn ${t === talleModalActual ? "active" : ""}" data-size="${t}">Talle ${t}</button>`).join("")}
+        `;
+        const btns = modalSizeSelector.querySelectorAll(".size-btn");
+        btns.forEach(b => {
+          b.addEventListener("click", () => {
+            btns.forEach(x => x.classList.remove("active"));
+            b.classList.add("active");
+            talleModalActual = b.dataset.size;
+          });
+        });
+      } else {
+        talleModalActual = null;
+        modalSizeSelector.style.display = "none";
+        modalSizeSelector.innerHTML = "";
+      }
+
+      if (prod.agotado) {
+        modalAddBtn.disabled = true;
+        modalAddBtn.classList.add("disabled-btn");
+        modalAddBtn.innerHTML = "<span>Sin stock / Agotado</span>";
+      } else {
+        modalAddBtn.disabled = false;
+        modalAddBtn.classList.remove("disabled-btn");
+        modalAddBtn.innerHTML = "<span>Agregar al carrito</span>";
+      }
+
+      productModalOverlay.classList.add("open");
+      productModalOverlay.setAttribute("aria-hidden", "false");
+    }
+
+    function cerrarModalProducto() {
+      productModalOverlay.classList.remove("open");
+      productModalOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    /* =========================================================================
+       5.C MODAL SELECTOR DE PROMOCIÓN 2 VAPERS ($53.000)
+       ========================================================================= */
+    const promoModalOverlay = document.getElementById("promoModalOverlay");
+    const closePromoModal = document.getElementById("closePromoModal");
+    const promoSlot1 = document.getElementById("promoSlot1");
+    const promoSlot2 = document.getElementById("promoSlot2");
+    const promoFlavorsGrid = document.getElementById("promoFlavorsGrid");
+    const confirmPromoBtn = document.getElementById("confirmPromoBtn");
+    let seleccionPromoActual = [];
+
+    function abrirModalPromo() {
+      seleccionPromoActual = [];
+      renderizarSelectorPromo();
+      promoModalOverlay.classList.add("open");
+      promoModalOverlay.setAttribute("aria-hidden", "false");
+    }
+
+    function cerrarModalPromo() {
+      promoModalOverlay.classList.remove("open");
+      promoModalOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    function renderizarSelectorPromo() {
+      const actualizarSlot = (slotEl, indice, textoVacio) => {
+        const item = seleccionPromoActual[indice];
+        if (item) {
+          slotEl.className = "promo-slot-pill filled";
+          slotEl.innerHTML = `
+            <span>${indice + 1}°: ${item.nombre}</span>
+            <button type="button" class="slot-remove-btn" data-remove="${indice}" title="Quitar">✕</button>
+          `;
+          slotEl.querySelector(".slot-remove-btn").addEventListener("click", () => {
+            seleccionPromoActual.splice(indice, 1);
+            renderizarSelectorPromo();
+          });
+        } else {
+          slotEl.className = "promo-slot-pill";
+          slotEl.innerHTML = `<span>${textoVacio}</span>`;
+        }
+      };
+
+      actualizarSlot(promoSlot1, 0, "1° Vaper: Sin seleccionar");
+      actualizarSlot(promoSlot2, 1, "2° Vaper: Sin seleccionar");
+
+      promoFlavorsGrid.innerHTML = "";
+      const vapersCatalogo = PRODUCTOS.filter(p => p.categoria === "vapers");
+
+      vapersCatalogo.forEach(vaper => {
+        const cantidadElegida = seleccionPromoActual.filter(s => s.id === vaper.id).length;
+        const lleno = seleccionPromoActual.length >= 2;
+        const agotado = Boolean(vaper.agotado);
+        const deshabilitado = agotado || (lleno && cantidadElegida === 0);
+
+        const itemEl = document.createElement("div");
+        itemEl.className = `promo-flavor-item ${cantidadElegida > 0 ? "selected" : ""} ${deshabilitado ? "disabled" : ""}`;
+        itemEl.innerHTML = `
+          <div class="promo-flavor-left">
+            <span class="flavor-dot" style="background:${vaper.color}"></span>
+            <span>${vaper.nombre}</span>
+          </div>
+          <span class="promo-flavor-badge">
+            ${agotado ? "Agotado" : (cantidadElegida > 0 ? `${cantidadElegida}x` : "+")}
+          </span>
+        `;
+
+        itemEl.addEventListener("click", () => {
+          if (agotado) return;
+          if (seleccionPromoActual.length < 2) {
+            seleccionPromoActual.push(vaper);
+            renderizarSelectorPromo();
+          } else if (cantidadElegida > 0) {
+            const idx = seleccionPromoActual.findIndex(s => s.id === vaper.id);
+            if (idx !== -1) {
+              seleccionPromoActual.splice(idx, 1);
+              renderizarSelectorPromo();
+            }
+          }
+        });
+
+        promoFlavorsGrid.appendChild(itemEl);
+      });
+
+      if (seleccionPromoActual.length === 2) {
+        confirmPromoBtn.disabled = false;
+        confirmPromoBtn.textContent = "Agregar Promo al Carrito ($53.000)";
+      } else {
+        confirmPromoBtn.disabled = true;
+        confirmPromoBtn.textContent = `Seleccioná 2 vapers (${seleccionPromoActual.length}/2)`;
+      }
+    }
+
+    function confirmarPromoAlCarrito(botonOrigen) {
+      if (seleccionPromoActual.length !== 2) return;
+
+      const saboresOrdenados = [seleccionPromoActual[0].nombre, seleccionPromoActual[1].nombre];
+      const clavePromo = `promo-2x-${[seleccionPromoActual[0].id, seleccionPromoActual[1].id].sort().join("-")}`;
+
+      const existente = carrito.find(item => item.id === clavePromo);
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({
+          id: clavePromo,
+          nombre: PROMO_DOS_VAPERS.nombre,
+          precio: PROMO_DOS_VAPERS.precio,
+          cantidad: 1,
+          esPromo: true,
+          sabores: saboresOrdenados
+        });
+      }
+
+      if (botonOrigen) animarVueloAlCarrito(botonOrigen);
+      actualizarVistaCarrito();
+      cerrarModalPromo();
+    }
+
+    /* =========================================================================
+       6. LÓGICA DEL CARRITO Y ENVÍOS A COORDINAR
+       ========================================================================= */
+    let carrito = [];
+
+    const cartTrigger = document.getElementById("cartTrigger");
+    const cartCount = document.getElementById("cartCount");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const closeCart = document.getElementById("closeCart");
+    const cartItemsList = document.getElementById("cartItemsList");
+    const shippingDock = document.getElementById("shippingDock");
+    const subtotalText = document.getElementById("subtotalText");
+    const shippingSummaryRow = document.getElementById("shippingSummaryRow");
+    const totalText = document.getElementById("totalText");
+    const buyerNote = document.getElementById("buyerNote");
+    const sendWhatsappBtn = document.getElementById("sendWhatsappBtn");
+
+    function animarVueloAlCarrito(botonOrigen) {
+      const rectOrigen = botonOrigen.getBoundingClientRect();
+      const rectDestino = cartTrigger.getBoundingClientRect();
+
+      const dot = document.createElement("div");
+      dot.className = "fly-dot";
+      dot.textContent = "⚡";
+      dot.style.left = `${rectOrigen.left + rectOrigen.width / 2 - 18}px`;
+      dot.style.top = `${rectOrigen.top + rectOrigen.height / 2 - 18}px`;
+      document.body.appendChild(dot);
+
+      requestAnimationFrame(() => {
+        const dx = (rectDestino.left + rectDestino.width / 2) - (rectOrigen.left + rectOrigen.width / 2);
+        const dy = (rectDestino.top + rectDestino.height / 2) - (rectOrigen.top + rectOrigen.height / 2);
+        dot.style.transform = `translate(${dx}px, ${dy}px) scale(0.35)`;
+        dot.style.opacity = "0.2";
+      });
+
+      setTimeout(() => {
+        dot.remove();
+        cartTrigger.classList.remove("bump");
+        void cartTrigger.offsetWidth;
+        cartTrigger.classList.add("bump");
+      }, 620);
+    }
+
+    function agregarAlCarrito(idProducto, botonElemento, talleElegido = null) {
+      const producto = PRODUCTOS.find(p => p.id === idProducto);
+      if (!producto) return;
+
+      const talleFinal = talleElegido || (Array.isArray(producto.talles) ? producto.talles[0] : null);
+      const idItemCarrito = talleFinal ? `${idProducto}-talle-${talleFinal}` : idProducto;
+      const nombreConTalle = talleFinal ? `${producto.nombre} (Talle ${talleFinal})` : producto.nombre;
+
+      const existente = carrito.find(item => item.id === idItemCarrito);
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({
+          ...producto,
+          id: idItemCarrito,
+          nombre: nombreConTalle,
+          talleSeleccionado: talleFinal,
+          cantidad: 1
+        });
+      }
+
+      if (botonElemento) animarVueloAlCarrito(botonElemento);
+      actualizarVistaCarrito();
+    }
+
+    function cambiarCantidad(idProducto, delta) {
+      const idx = carrito.findIndex(item => item.id === idProducto);
+      if (idx === -1) return;
+
+      carrito[idx].cantidad += delta;
+      if (carrito[idx].cantidad <= 0) {
+        carrito.splice(idx, 1);
+      }
+      actualizarVistaCarrito();
+    }
+
+    function actualizarVistaCarrito() {
+      const totalUnidades = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+      cartCount.textContent = totalUnidades;
+
+      if (carrito.length === 0) {
+        cartItemsList.innerHTML = `<div class="empty-msg" id="emptyCartMsg">Tu carrito está vacío. Agregá tus productos favoritos para armar el pedido.</div>`;
+        shippingDock.style.display = "none";
+        if (shippingSummaryRow) shippingSummaryRow.style.display = "none";
+      } else {
+        shippingDock.style.display = "block";
+        if (shippingSummaryRow) shippingSummaryRow.style.display = "flex";
+        cartItemsList.innerHTML = "";
+        carrito.forEach(item => {
+          const fila = document.createElement("div");
+          fila.className = "cart-item";
+
+          const detallePromoHtml = item.esPromo
+            ? `<span class="cart-promo-tag">🔥 PROMO 2x</span>
+               <h4>${item.nombre}</h4>
+               <div class="cart-promo-flavors">• ${item.sabores[0]}<br>• ${item.sabores[1]}</div>`
+            : `<h4>${item.nombre}</h4>`;
+
+          fila.innerHTML = `
+            <div class="cart-item-info">
+              ${detallePromoHtml}
+              <span>${formatearPesos(item.precio * item.cantidad)}</span>
+            </div>
+            <div class="qty-controls">
+              <button class="qty-btn" type="button" data-action="dec">−</button>
+              <strong>${item.cantidad}</strong>
+              <button class="qty-btn" type="button" data-action="inc">+</button>
+            </div>
+          `;
+          fila.querySelector('[data-action="dec"]').addEventListener("click", () => cambiarCantidad(item.id, -1));
+          fila.querySelector('[data-action="inc"]').addEventListener("click", () => cambiarCantidad(item.id, 1));
+          cartItemsList.appendChild(fila);
+        });
+      }
+
+      const subtotal = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+      subtotalText.textContent = formatearPesos(subtotal);
+      totalText.textContent = carrito.length === 0
+        ? "$0"
+        : formatearPesos(subtotal);
+    }
+
+    /* =========================================================================
+       7. ENVÍO DE PEDIDO POR WHATSAPP
+       ========================================================================= */
+    function enviarPedidoWhatsApp() {
+      if (carrito.length === 0) {
+        const emptyEl = document.getElementById("emptyCartMsg");
+        if (emptyEl) {
+          emptyEl.textContent = "⚡ Agregá al menos un producto al carrito antes de enviar el pedido.";
+          emptyEl.classList.add("warn");
+          setTimeout(() => emptyEl.classList.remove("warn"), 1800);
+        }
+        return;
+      }
+
+      const subtotal = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+      const lineasProductos = carrito
+        .map(item => {
+          if (item.esPromo) {
+            return `- ${item.cantidad}x Promoción 2 Vapers por ${formatearPesos(item.precio * item.cantidad)} (Sabores: ${item.sabores[0]} + ${item.sabores[1]})`;
+          }
+          return `- ${item.cantidad}x ${item.nombre} (${formatearPesos(item.precio * item.cantidad)})`;
+        })
+        .join("\n");
+
+      const datoExtra = buyerNote.value.trim();
+
+      let mensaje = `¡Hola MODO SPORT! Quiero realizar el siguiente pedido:\n\n`;
+      mensaje += `Carrito:\n${lineasProductos}\n\n`;
+      mensaje += `Envío: A coordinar por WhatsApp\n`;
+      if (datoExtra) {
+        mensaje += `Cliente / Zona: ${datoExtra}\n`;
+      }
+      mensaje += `Total: ${formatearPesos(subtotal)}`;
+
+      const url = `https://wa.me/${CONFIG_NEGOCIO.whatsappNumero}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    /* =========================================================================
+       8. EVENTOS Y NAVEGACIÓN
+       ========================================================================= */
+    function inicializarEventos() {
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navPills = document.getElementById("navPills");
+
+      const cerrarMenuMobile = () => {
+        if (!navPills || !mobileMenuBtn) return;
+        navPills.classList.remove("mobile-open");
+        mobileMenuBtn.classList.remove("open");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+      };
+
+      if (mobileMenuBtn && navPills) {
+        mobileMenuBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const abierto = navPills.classList.toggle("mobile-open");
+          mobileMenuBtn.classList.toggle("open", abierto);
+          mobileMenuBtn.setAttribute("aria-expanded", abierto ? "true" : "false");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!navPills.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            cerrarMenuMobile();
+          }
+        });
+      }
+
+      const abrir = () => {
+        cerrarMenuMobile();
+        cartOverlay.classList.add("open");
+        cartDrawer.classList.add("open");
+      };
+
+      const cerrar = () => {
+        cartOverlay.classList.remove("open");
+        cartDrawer.classList.remove("open");
+      };
+
+      cartTrigger.addEventListener("click", abrir);
+      closeCart.addEventListener("click", cerrar);
+      cartOverlay.addEventListener("click", cerrar);
+
+      closeProductModal.addEventListener("click", cerrarModalProducto);
+      if (modalGalleryPrev && modalGalleryNext) {
+        modalGalleryPrev.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (galeriaModalActual.length <= 1) return;
+          indiceFotoModal = (indiceFotoModal - 1 + galeriaModalActual.length) % galeriaModalActual.length;
+          actualizarVistaGaleriaModal();
+        });
+        modalGalleryNext.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (galeriaModalActual.length <= 1) return;
+          indiceFotoModal = (indiceFotoModal + 1) % galeriaModalActual.length;
+          actualizarVistaGaleriaModal();
+        });
+
+        const modalMediaEl = document.querySelector(".product-modal-media");
+        if (modalMediaEl) {
+          let modalTouchStartX = 0;
+          modalMediaEl.addEventListener("touchstart", (e) => {
+            modalTouchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+          modalMediaEl.addEventListener("touchend", (e) => {
+            if (galeriaModalActual.length <= 1) return;
+            const diff = modalTouchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 40) {
+              if (diff > 0) {
+                indiceFotoModal = (indiceFotoModal + 1) % galeriaModalActual.length;
+              } else {
+                indiceFotoModal = (indiceFotoModal - 1 + galeriaModalActual.length) % galeriaModalActual.length;
+              }
+              actualizarVistaGaleriaModal();
+            }
+          }, { passive: true });
+        }
+      }
+      productModalOverlay.addEventListener("click", (e) => {
+        if (e.target === productModalOverlay) cerrarModalProducto();
+      });
+      modalAddBtn.addEventListener("click", (e) => {
+        if (!productoModalActual) return;
+        agregarAlCarrito(productoModalActual.id, e.currentTarget, talleModalActual);
+        cerrarModalProducto();
+      });
+
+      closePromoModal.addEventListener("click", cerrarModalPromo);
+      promoModalOverlay.addEventListener("click", (e) => {
+        if (e.target === promoModalOverlay) cerrarModalPromo();
+      });
+      confirmPromoBtn.addEventListener("click", (e) => {
+        confirmarPromoAlCarrito(e.currentTarget);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          cerrarModalProducto();
+          cerrarModalPromo();
+        }
+      });
+
+      const contactShippingCard = document.getElementById("contactShippingCard");
+      if (contactShippingCard) {
+        contactShippingCard.addEventListener("click", () => {
+          abrir();
+        });
+      }
+
+      sendWhatsappBtn.addEventListener("click", enviarPedidoWhatsApp);
+
+      const contactWa = document.getElementById("contactWhatsappLink");
+      const contactIg = document.getElementById("contactInstagramLink");
+      const igText = document.getElementById("instagramHandleText");
+      const wholesaleWa = document.getElementById("wholesaleWhatsappBtn");
+
+      contactWa.href = `https://wa.me/${CONFIG_NEGOCIO.whatsappNumero}?text=${encodeURIComponent("¡Hola MODO SPORT! Te hago una consulta por el catálogo:")}`;
+      if (wholesaleWa) {
+        wholesaleWa.href = `https://wa.me/${CONFIG_NEGOCIO.whatsappNumero}?text=${encodeURIComponent("¡Hola MODO SPORT! Quería consultar por la lista de precios mayoristas")}`;
+      }
+      contactIg.href = `https://www.instagram.com/${CONFIG_NEGOCIO.instagramUsuario}`;
+      igText.textContent = `@${CONFIG_NEGOCIO.instagramUsuario}`;
+
+      const secciones = document.querySelectorAll(".category-section");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const brandLink = document.querySelector(".brand");
+
+      const irASeccion = (idSeccion) => {
+        const seccionDestino = document.getElementById(idSeccion);
+        cerrarMenuMobile();
+        if (!seccionDestino) return;
+
+        navLinks.forEach(l => {
+          l.classList.toggle("active", l.dataset.section === idSeccion);
+        });
+
+        const altoHeader = document.querySelector("header")?.offsetHeight || 70;
+        const posicionY = seccionDestino.getBoundingClientRect().top + window.pageYOffset - altoHeader - 16;
+
+        window.scrollTo({
+          top: Math.max(0, posicionY),
+          behavior: "smooth"
+        });
+      };
+
+      if (brandLink) {
+        brandLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          irASeccion("vapers");
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const idDestino = link.dataset.section || link.getAttribute("href").replace("#", "");
+          irASeccion(idDestino);
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach(link => {
+              link.classList.toggle("active", link.dataset.section === id);
+            });
+          }
+        });
+      }, { rootMargin: "-35% 0px -55% 0px" });
+
+      secciones.forEach(sec => observer.observe(sec));
+    }
+
+    renderizarCatalogo();
+    actualizarVistaCarrito();
+    inicializarEventos();
+  </script>
+</body>
+</html>
